@@ -41,22 +41,21 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
-- belongs_to :address
 - has_many :purchases
 
 ## items テーブル
 
-| Column           | Type   | Options    |
-| ---------------- | ------ | ---------- |
-| image            | text   | null:false |
-| name             | string | null:false |
-| explanation      | text   | null:false |
-| category_id      | string | null:false |
-| status_id        | string | null:false |
-| delivery_cost_id | string | null:false |
-| delivery_area_id | string | null:false |
-| delivery_days_id | string | null:false |
-| user_id          | string | null:false |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| image            | text       | null:false                     |
+| name             | string     | null:false                     |
+| explanation      | text       | null:false                     |
+| category_id      | integer    | null:false                     |
+| status_id        | integer    | null:false                     |
+| delivery_cost_id | integer    | null:false                     |
+| delivery_area_id | integer    | null:false                     |
+| delivery_days_id | integer    | null:false                     |
+| user_id          | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -65,27 +64,27 @@ Things you may want to cover:
 
 ## addresses
 
-| Colomn          | Type    | Options    |
-| --------------- | ------- | ---------- |
-| postal_code     | integer | null:false |
-| prefectures_id  | string  | null:false |
-| city            | string  | null:false |
-| address         | string  | null:false |
-| building_name   | string  |            |
-| phone_number    | integer | null:false |
+| Colomn          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| postal_code     | string     | null:false                     |
+| prefectures_id  | integer    | null:false                     |
+| city            | string     | null:false                     |
+| address         | string     | null:false                     |
+| building_name   | string     |                                |
+| phone_number    | string     | null:false                     |
+| purchase_id     | references | null: false, foreign_key: true |
 
 ### Association
 
-- has_many :users
 - belongs_to :purchase
 
 
 ## purchases
 
-| Colomn  | Type    | Options    |
-| ------- | ------- | ---------- |
-| user_id | integer | null:false |
-| item_id | integer | null:false |
+| Colomn  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| user_id | references | null: false, foreign_key: true |
+| item_id | references | null: false, foreign_key: true |
 
 ### Association
 
