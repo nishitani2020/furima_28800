@@ -27,17 +27,15 @@ Things you may want to cover:
 
 ## users テーブル
 
-| Column                | Type   | Options     |
-| --------------------- | ------ | ----------- |
-| name                  | string | null: false |
-| email                 | string | null: false |
-| password              | string | null: false |
-| password_confirmation | string | null: false |
-| family_name           | string | null: false |
-| family_name_kana      | string | null: false |
-| first_name            | string | null: false |
-| first_name_kana       | string | null: false |
-| birth_date            | date   | null: false |
+| Column           | Type   | Options     |
+| ---------------- | ------ | ----------- |
+| name             | string | null: false |
+| email            | string | null: false |
+| family_name      | string | null: false |
+| family_name_kana | string | null: false |
+| first_name       | string | null: false |
+| first_name_kana  | string | null: false |
+| birth_date       | date   | null: false |
 
 
 ### Association
@@ -51,7 +49,7 @@ Things you may want to cover:
 | Column           | Type   | Options    |
 | ---------------- | ------ | ---------- |
 | image            | text   | null:false |
-| name             | string | nill:false |
+| name             | string | null:false |
 | explanation      | text   | null:false |
 | category_id      | string | null:false |
 | status_id        | string | null:false |
@@ -65,9 +63,9 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :purchase
 
-## address
+## addresses
 
-| Culomn          | Type    | Options    |
+| Colomn          | Type    | Options    |
 | --------------- | ------- | ---------- |
 | postal_code     | integer | null:false |
 | prefectures_id  | string  | null:false |
@@ -79,11 +77,12 @@ Things you may want to cover:
 ### Association
 
 - has_many :users
+- belongs_to :purchase
 
 
 ## purchases
 
-| Culomn  | Type   | Options    |
+| Colomn  | Type   | Options    |
 | ------- | ------ | ---------- |
 | user_id | string | null:false |
 | item_id | string | null:false |
@@ -92,3 +91,4 @@ Things you may want to cover:
 
 - belongs_to :user
 - has_mane :items
+- has_one :address
