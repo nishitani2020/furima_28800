@@ -27,59 +27,50 @@ Things you may want to cover:
 
 ## users テーブル
 
-| Column           | Type   | Options     |
-| ---------------- | ------ | ----------- |
-| name             | string | null: false |
-| email            | string | null: false |
-| password         | strign | null: false |
-| password_confirm | string | null: false |
-| name             | string | null: false |
-| mname_kana       | string | null: false |
-| birth_date       | string | null: false |
+| Column                | Type   | Options     |
+| --------------------- | ------ | ----------- |
+| name                  | string | null: false |
+| email                 | string | null: false |
+| password              | string | null: false |
+| password_confirmation | string | null: false |
+| family_name           | string | null: false |
+| family_name_kana      | string | null: false |
+| first_name            | string | null: false |
+| first_name_kana       | string | null: false |
+| birth_date            | date   | null: false |
+
 
 ### Association
 
 - has_many :items
-- has_many :comments
-- has_many :purchase
+- belongs_to :address
+- has_many :purchases
 
 ## items テーブル
 
-| Column        | Type   | Options    |
-| ------------- | ------ | ---------- |
-| image         | text   | null:false |
-| imagge_name   | string | nill:false |
-| explanation   | text   | null:false |
-| category      | string | null:false |
-| status        | string | null:false |
-| delivery_cost | string | null:false |
-| delivery_area | string | null:false |
-| delivery_days | string | null:false |
+| Column           | Type   | Options    |
+| ---------------- | ------ | ---------- |
+| image            | text   | null:false |
+| name             | string | nill:false |
+| explanation      | text   | null:false |
+| category_id      | string | null:false |
+| status_id        | string | null:false |
+| delivery_cost_id | string | null:false |
+| delivery_area_id | string | null:false |
+| delivery_days_id | string | null:false |
+| user_id          | string | null:false |
 
 ### Association
 
-- belongs_to :users
-- has_many :comments
+- belongs_to :user
+- belongs_to :purchase
 
-##comments
-
-| Column   | Type | Options    |
-| comment  | text | null:false |
-
-### Association
-
-- belongs_to:users
-- belongs_to:items
-
-## purchase
+## address
 
 | Culomn          | Type    | Options    |
 | --------------- | ------- | ---------- |
-| card_num        | integer | null:false |
-| expiration_date | integer | null:false |
-| security_code   | integer | null:false |
 | postal_code     | integer | null:false |
-| prefectures     | string  | null:false |
+| prefectures_id  | string  | null:false |
 | city            | string  | null:false |
 | address         | string  | null:false |
 | building_name   | string  |            |
@@ -87,4 +78,17 @@ Things you may want to cover:
 
 ### Association
 
--belongs_to:users
+- has_many :users
+
+
+## purchases
+
+| Culomn  | Type   | Options    |
+| ------- | ------ | ---------- |
+| user_id | string | null:false |
+| item_id | string | null:false |
+
+### Association
+
+- belongs_to :user
+- has_mane :items
