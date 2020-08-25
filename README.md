@@ -61,7 +61,7 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :user
-- belongs_to :purchase
+- has_one :purchase
 
 ## addresses
 
@@ -82,13 +82,13 @@ Things you may want to cover:
 
 ## purchases
 
-| Colomn  | Type   | Options    |
-| ------- | ------ | ---------- |
-| user_id | string | null:false |
-| item_id | string | null:false |
+| Colomn  | Type    | Options    |
+| ------- | ------- | ---------- |
+| user_id | integer | null:false |
+| item_id | integer | null:false |
 
 ### Association
 
 - belongs_to :user
-- has_mane :items
+- belongs_to :item
 - has_one :address
