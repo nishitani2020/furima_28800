@@ -68,7 +68,13 @@ RSpec.describe Item, type: :model do
     end
 
     it '価格が半角数字以外では登録できないこと' do
-      @item.price = 'aあ１一'
+      @item.price = ' ３００ '
+      @item.valid?
+      expect(@item.errors.full_messages).to include('Price is not included in the list')
+    end
+
+    it '価格の上限を超えると登録できないこと' do
+      @item.price = 10000000
       @item.valid?
       expect(@item.errors.full_messages).to include('Price is not included in the list')
     end
