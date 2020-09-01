@@ -16,7 +16,7 @@ RSpec.describe User, type: :model do
         expect(@user).to be_valid
       end
     end
-      
+
     context '新規登録がうまくいかないとき' do
       it 'nicknameが空だと登録できない' do
         @user.nickname = nil
@@ -40,7 +40,7 @@ RSpec.describe User, type: :model do
       it 'emailに＠が含まていないと登録できないこと' do
         @user.email = 'aaaaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Email is invalid")
+        expect(@user.errors.full_messages).to include('Email is invalid')
       end
 
       it 'passwordが空だと登録できないこと' do
