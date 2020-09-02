@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :delivery_day
   belongs_to :user
   has_one_attached :image
+  has_one :purchase
 
   validates :image, :name, :explanation, :price, presence: true
   validates :price, inclusion: { in: 300..9_999_999 }, format: { with: /\A[0-9]+\z/ }
