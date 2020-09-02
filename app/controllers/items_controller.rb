@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
   end
 
   def order
-  Purchase.create(item_id: params[:id])
+    Purchase.create(item_id: params[:id])
   end
 
   private
