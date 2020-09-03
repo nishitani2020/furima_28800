@@ -74,7 +74,7 @@ RSpec.describe Item, type: :model do
     end
 
     it '価格の上限を超えると登録できないこと' do
-      @item.price = 10000000
+      @item.price = 10_000_000
       @item.valid?
       expect(@item.errors.full_messages).to include('Price is not included in the list')
     end
