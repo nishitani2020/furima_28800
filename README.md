@@ -63,12 +63,12 @@ Things you may want to cover:
 - belongs_to :user
 - has_one :purchase
 
-## addresses
+## orders
 
 | Colomn          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
 | postal_code     | string     | null:false                     |
-| prefectures_id  | integer    | null:false                     |
+| prefecture_id   | integer    | null:false                     |
 | city            | string     | null:false                     |
 | address         | string     | null:false                     |
 | building_name   | string     |                                |
@@ -91,4 +91,4 @@ Things you may want to cover:
 
 - belongs_to :user
 - belongs_to :item
-- has_one :address
+- has_one :order
