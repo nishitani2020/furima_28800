@@ -60,6 +60,13 @@ RSpec.describe PurchaseOrder, type: :model do
         @purchase_order.valid?
         expect(@purchase_order.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
       end
+
+      it 'トークンが空だと登録できないこと' do
+        @purchase_order.token = nil
+        @purchase_order.valid?
+        expect(@purchase_order.errors.full_messages).to include("Token can't be blank")
+      end
+
     end
   end
 end
